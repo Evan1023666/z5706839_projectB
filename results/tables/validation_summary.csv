@@ -1,0 +1,8 @@
+check,passed,evidence_value
+fund_return_keys_unique,True,0.0
+fund_returns_finite,True,0.0
+weights_sum_to_one,True,2.220446049250313e-16
+weights_nonnegative,True,0.0
+estimation_ends_before_rebalance,True,0.0
+sentiment_lagged_one_equity_day,True,0.0
+reliability_bounded,True,0.0

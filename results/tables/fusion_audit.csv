@@ -1,0 +1,73 @@
+fund,method,rebalance_date,signal_date_used,reliability_adjusted,mean_signal_reliability,active_weight_change
+Equity Min Variance + Sentiment,sentiment,2021-01-04,2021-01-04,False,0.4643177338474416,0.041370966714110814
+Equity Min Variance + Sentiment,sentiment,2021-02-01,2021-02-01,False,0.6385402903217666,0.0608170293983036
+Equity Min Variance + Sentiment,sentiment,2021-03-01,2021-03-01,False,0.5682947530864196,0.09085125753731252
+Equity Min Variance + Sentiment,sentiment,2021-04-01,2021-04-01,False,0.5753082214883081,0.061626163116251596
+Equity Min Variance + Sentiment,sentiment,2021-05-03,2021-05-03,False,0.5757987377643075,0.05136517366206731
+Equity Min Variance + Sentiment,sentiment,2021-06-01,2021-06-01,False,0.6438228344046527,0.07748814586376618
+Equity Min Variance + Sentiment,sentiment,2021-07-01,2021-07-01,False,0.4948037299572125,0.12314534515372993
+Equity Min Variance + Sentiment,sentiment,2021-08-02,2021-08-02,False,0.4389892274546015,0.028631743475868332
+Equity Min Variance + Sentiment,sentiment,2021-09-01,2021-09-01,False,0.5608287821525917,0.07649883482279687
+Equity Min Variance + Sentiment,sentiment,2021-10-01,2021-10-01,False,0.7675744791666667,0.06506908531740738
+Equity Min Variance + Sentiment,sentiment,2021-11-01,2021-11-01,False,0.5321463382683287,0.11577503296978948
+Equity Min Variance + Sentiment,sentiment,2021-12-01,2021-12-01,False,0.5964027898488348,0.11608848288694125
+Equity Min Variance + Sentiment,sentiment,2022-01-03,2022-01-03,False,0.6380230151731474,0.1046518035380128
+Equity Min Variance + Sentiment,sentiment,2022-02-01,2022-02-01,False,0.8569842087024041,0.0322808452730018
+Equity Min Variance + Sentiment,sentiment,2022-03-01,2022-03-01,False,0.6903895813924124,0.06851039672744648
+Equity Min Variance + Sentiment,sentiment,2022-04-01,2022-04-01,False,0.8117123913860624,0.10643465951107824
+Equity Min Variance + Sentiment,sentiment,2022-05-02,2022-05-02,False,0.686316236288137,0.06016276514025524
+Equity Min Variance + Sentiment,sentiment,2022-06-01,2022-06-01,False,0.7621836460232297,0.09812226246715784
+Equity Min Variance + Sentiment,sentiment,2022-07-01,2022-07-01,False,0.7624163434345103,0.06711455989702103
+Equity Min Variance + Sentiment,sentiment,2022-08-01,2022-08-01,False,0.7011366846989547,0.12725906278572793
+Equity Min Variance + Sentiment,sentiment,2022-09-01,2022-09-01,False,0.771779757616044,0.12530974964227798
+Equity Min Variance + Sentiment,sentiment,2022-10-03,2022-10-03,False,0.528887203855175,0.07469523463942954
+Equity Min Variance + Sentiment,sentiment,2022-11-01,2022-11-01,False,0.7125477523011177,0.10550228328506736
+Equity Min Variance + Sentiment,sentiment,2022-12-01,2022-12-01,False,0.7219612727406223,0.06468632854938805
+Equity Min Variance + Sentiment,sentiment,2023-01-03,2023-01-03,False,0.5952363619965892,0.0480054426921441
+Equity Min Variance + Sentiment,sentiment,2023-02-01,2023-02-01,False,0.7279951519141048,0.10205514905523806
+Equity Min Variance + Sentiment,sentiment,2023-03-01,2023-03-01,False,0.5473017189048002,0.05147606359371797
+Equity Min Variance + Sentiment,sentiment,2023-04-03,2023-04-03,False,0.7072734623485996,0.04119769888648602
+Equity Min Variance + Sentiment,sentiment,2023-05-01,2023-05-01,False,0.7668261739682357,0.0706579080110488
+Equity Min Variance + Sentiment,sentiment,2023-06-01,2023-06-01,False,0.7152812571148977,0.07163779152390791
+Equity Min Variance + Sentiment,sentiment,2023-07-03,2023-07-03,False,0.7381040928373249,0.03924589333742111
+Equity Min Variance + Sentiment,sentiment,2023-08-01,2023-08-01,False,0.8144988519581067,0.05197239075860137
+Equity Min Variance + Sentiment,sentiment,2023-09-01,2023-09-01,False,0.799423326706388,0.03076356828253459
+Equity Min Variance + Sentiment,sentiment,2023-10-02,2023-10-02,False,0.6757325208231818,0.0595172724824334
+Equity Min Variance + Sentiment,sentiment,2023-11-01,2023-11-01,False,0.747069262389566,0.02488132407603893
+Equity Min Variance + Sentiment,sentiment,2023-12-01,2023-12-01,False,0.781082332456433,0.1182154382188632
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2021-01-04,2021-01-04,True,0.4643177338474416,0.026544337659731458
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2021-02-01,2021-02-01,True,0.6385402903217666,0.039588911782198755
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2021-03-01,2021-03-01,True,0.5682947530864196,0.057172470213783785
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2021-04-01,2021-04-01,True,0.5753082214883081,0.025197814991808558
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2021-05-03,2021-05-03,True,0.5757987377643075,0.032225063442392204
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2021-06-01,2021-06-01,True,0.6438228344046527,0.06427217135967847
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2021-07-01,2021-07-01,True,0.4948037299572125,0.056280738449174146
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2021-08-02,2021-08-02,True,0.4389892274546015,0.01318142923041678
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2021-09-01,2021-09-01,True,0.5608287821525917,0.04120945945360416
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2021-10-01,2021-10-01,True,0.7675744791666667,0.043487261211002895
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2021-11-01,2021-11-01,True,0.5321463382683287,0.05838909003195622
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2021-12-01,2021-12-01,True,0.5964027898488348,0.06894800145672067
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2022-01-03,2022-01-03,True,0.6380230151731474,0.0651274145212125
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2022-02-01,2022-02-01,True,0.8569842087024041,0.02696421201155533
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2022-03-01,2022-03-01,True,0.6903895813924124,0.04593014332767868
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2022-04-01,2022-04-01,True,0.8117123913860624,0.08575573277443607
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2022-05-02,2022-05-02,True,0.686316236288137,0.046445119505693855
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2022-06-01,2022-06-01,True,0.7621836460232297,0.08337926078580926
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2022-07-01,2022-07-01,True,0.7624163434345103,0.04859933275999363
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2022-08-01,2022-08-01,True,0.7011366846989547,0.07939826790372959
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2022-09-01,2022-09-01,True,0.771779757616044,0.11626154780426862
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2022-10-03,2022-10-03,True,0.528887203855175,0.05270006786789011
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2022-11-01,2022-11-01,True,0.7125477523011177,0.07660926865880846
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2022-12-01,2022-12-01,True,0.7219612727406223,0.04931289227801567
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2023-01-03,2023-01-03,True,0.5952363619965892,0.033160046726913826
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2023-02-01,2023-02-01,True,0.7279951519141048,0.08233132777814801
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2023-03-01,2023-03-01,True,0.5473017189048002,0.021171656352139065
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2023-04-03,2023-04-03,True,0.7072734623485996,0.028598177312362163
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2023-05-01,2023-05-01,True,0.7668261739682357,0.06141519185326862
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2023-06-01,2023-06-01,True,0.7152812571148977,0.02858279620332377
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2023-07-03,2023-07-03,True,0.7381040928373249,0.02713375605472966
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2023-08-01,2023-08-01,True,0.8144988519581067,0.0454813774954702
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2023-09-01,2023-09-01,True,0.799423326706388,0.020630351893012162
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2023-10-02,2023-10-02,True,0.6757325208231818,0.042003302598432546
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2023-11-01,2023-11-01,True,0.747069262389566,0.020587509571376283
+Equity Min Variance + Coverage-Aware Sentiment,coverage_sentiment,2023-12-01,2023-12-01,True,0.781082332456433,0.0862021112921786
