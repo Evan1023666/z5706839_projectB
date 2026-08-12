@@ -33,6 +33,9 @@ def test_walk_forward_uses_only_past_observations():
     assert (pd.to_datetime(audit["estimation_end"]) < audit["rebalance_date"]).all()
     assert np.allclose(weights.sum(axis=1), 1.0)
     assert realised.index.min() == weights.index.min()
+    assert audit.iloc[0]["turnover"] == pytest.approx(0.0)
+    manual_mean_rebalance_turnover = audit["turnover"].iloc[1:].mean()
+    assert manual_mean_rebalance_turnover >= 0
 
 
 def test_performance_metrics_match_manual_growth_and_drawdown():
@@ -41,6 +44,10 @@ def test_performance_metrics_match_manual_growth_and_drawdown():
     growth = (1.10 * 0.80 * 1.05)
     assert metrics["terminal_growth_of_one"] == pytest.approx(growth)
     assert metrics["maximum_drawdown"] == pytest.approx(-0.20)
+    expected_mean = np.mean([0.10, -0.20, 0.05]) * 3
+    expected_vol = np.std([0.10, -0.20, 0.05], ddof=1) * np.sqrt(3)
+    assert metrics["annualised_mean_return"] == pytest.approx(expected_mean)
+    assert metrics["sharpe_ratio"] == pytest.approx(expected_mean / expected_vol)
 
 
 class DummyAnalyser:

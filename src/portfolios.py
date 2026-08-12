@@ -227,9 +227,10 @@ def performance_metrics(
     growth = (1 + values).cumprod()
     years = len(values) / periods_per_year
     annual_return = float(growth.iloc[-1] ** (1 / years) - 1)
+    annual_mean_return = float(values.mean() * periods_per_year)
     annual_volatility = float(values.std(ddof=1) * np.sqrt(periods_per_year))
     sharpe = (
-        (annual_return - risk_free_rate) / annual_volatility
+        (annual_mean_return - risk_free_rate) / annual_volatility
         if annual_volatility > 0 else np.nan
     )
     drawdown = growth / growth.cummax() - 1
@@ -239,6 +240,7 @@ def performance_metrics(
         "observations": int(len(values)),
         "annualisation_days": int(periods_per_year),
         "annualised_return": annual_return,
+        "annualised_mean_return": annual_mean_return,
         "annualised_volatility": annual_volatility,
         "sharpe_ratio": float(sharpe),
         "maximum_drawdown": float(drawdown.min()),

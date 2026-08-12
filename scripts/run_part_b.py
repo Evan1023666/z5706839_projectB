@@ -106,7 +106,9 @@ def build_baseline_funds(
                     "rebalance_frequency": "monthly_first_observed_day",
                     "risk_free_rate": config.risk_free_rate,
                     "transaction_cost_bps": config.transaction_cost_bps,
-                    "mean_one_way_turnover": float(audit["turnover"].mean()),
+                    # The first row is initial portfolio formation, not a
+                    # rebalance from a prior target, so exclude its placeholder 0.
+                    "mean_one_way_turnover": float(audit["turnover"].iloc[1:].mean()),
                     "latest_max_weight": float(weights.iloc[-1].max()),
                     "latest_effective_holdings": int((weights.iloc[-1] > 1e-6).sum()),
                 }

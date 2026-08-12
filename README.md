@@ -53,6 +53,7 @@ The app reads the committed CSV files in `results/`; it does not perform heavy m
 - Equity and combined funds trade on the equity calendar and use 252-day annualisation; crypto-only funds use their daily calendar and 365-day annualisation.
 - Long-only and fully invested; maximum target weight is 10% for equity/combined funds and 25% for crypto-only optimised funds.
 - Zero risk-free rate and zero transaction cost in the baseline. Turnover is reported so this simplification can be assessed.
+- Sharpe is annualised arithmetic mean return minus the zero risk-free rate, divided by annualised volatility; compounded annual return is reported separately.
 - Sector sentiment equal-weights covered ticker-day scores. Missing ticker-days are omitted from polarity and separately reduce coverage.
 - All sentiment used for a decision is lagged by at least one observed equity trading day.
 

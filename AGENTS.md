@@ -28,7 +28,7 @@ Preserve these student decisions:
 
 Ask the student to approve material choices that change the fund lineup, portfolio constraints, signal construction, innovation, or investor recommendations. Record those real decisions in the AI workflow pack.
 
-## HD implementation target
+## Implementation target
 
 Build and compare equity-only, crypto-only, and combined equity-and-crypto funds across several meaningfully distinct methods. Expected baseline methods are equal weight, minimum variance, maximum Sharpe, and risk parity where technically sound. Also build a standalone equity-sector sentiment index and a look-ahead-safe sentiment-enhanced equity strategy.
 

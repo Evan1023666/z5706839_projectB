@@ -202,7 +202,7 @@ elif page == "Fund fact sheet":
         bars.update_layout(height=470, margin=dict(l=10, r=10, t=15, b=10), showlegend=False, plot_bgcolor="white", paper_bgcolor="white", xaxis_title="Target weight", yaxis_title=None)
         st.plotly_chart(bars, width="stretch")
         st.caption(f"{metric.latest_effective_holdings:.0f} effective holdings; latest largest position {metric.latest_max_weight:.1%}.")
-    st.markdown(f'<div class="note-card"><b>Method:</b> {clean_label(metric.method)} uses a {int(metric.lookback_observations)}-observation rolling estimation window and rebalances on the first observed day of each month. The reported Sharpe uses a 0% risk-free rate and the baseline excludes transaction costs.</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="note-card"><b>Method:</b> {clean_label(metric.method)} uses a {int(metric.lookback_observations)}-observation rolling estimation window and rebalances on the first observed day of each month. Sharpe is annualised arithmetic mean return divided by annualised volatility, using a 0% risk-free rate; the baseline excludes transaction costs.</div>', unsafe_allow_html=True)
 
 
 elif page == "Allocation lab":
@@ -230,10 +230,12 @@ elif page == "Allocation lab":
             portfolio_return = pivot[selected].to_numpy() @ allocation
             growth = pd.Series(1 + portfolio_return, index=pivot.index).cumprod()
             drawdown = growth / growth.cummax() - 1
-            periods = 252
+            selected_families = performance.set_index("fund").loc[selected, "family"]
+            periods = 365 if selected_families.eq("Crypto").all() else 252
             annual_return = growth.iloc[-1] ** (periods / len(growth)) - 1
             annual_vol = pd.Series(portfolio_return).std(ddof=1) * np.sqrt(periods)
-            sharpe = annual_return / annual_vol if annual_vol > 0 else np.nan
+            annual_mean_return = float(np.mean(portfolio_return) * periods)
+            sharpe = annual_mean_return / annual_vol if annual_vol > 0 else np.nan
             cols = st.columns(4)
             cols[0].metric("Annual return", percent(annual_return))
             cols[1].metric("Annual risk", percent(annual_vol))
@@ -241,6 +243,7 @@ elif page == "Allocation lab":
             cols[3].metric("Max drawdown", percent(drawdown.min()))
             fig = go.Figure(go.Scatter(x=growth.index, y=growth, line=dict(color=TEAL, width=2.3), name="Your blend"))
             st.plotly_chart(base_layout(fig, y_title="Value of $1"), width="stretch")
+            st.caption(f"Metrics use {periods}-observation annualisation on the common return dates. Sharpe uses annualised arithmetic mean return and a 0% risk-free rate.")
             crypto_share = sum(weight for name, weight in zip(selected, allocation, strict=True) if "Crypto" in name)
             if crypto_share > 0.20:
                 st.markdown(f'<div class="risk-card"><b>Risk prompt:</b> {crypto_share:.0%} of this fund-level allocation is in a crypto-only fund before considering any crypto held inside combined funds. A conservative novice investor may lower this share because the crypto-only fact sheets show substantially deeper drawdowns.</div>', unsafe_allow_html=True)
