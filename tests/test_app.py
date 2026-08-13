@@ -2,6 +2,7 @@
 
 from pathlib import Path
 
+import pandas as pd
 from streamlit.testing.v1 import AppTest
 
 
@@ -25,6 +26,16 @@ def run_page(page: str) -> AppTest:
 def test_all_investor_journey_pages_render_without_exceptions():
     for page in PAGES:
         run_page(page)
+
+
+def test_comparison_uses_the_latest_corrected_metrics():
+    app = run_page("Fund comparison")
+    highest_sharpe = next(metric for metric in app.metric if metric.label == "Highest Sharpe")
+    metrics = pd.read_csv(APP.parent / "results" / "tables" / "performance_metrics.csv")
+    baseline = metrics.loc[~metrics["method"].str.contains("sentiment")]
+    expected = baseline.loc[baseline["sharpe_ratio"].idxmax()]
+    assert highest_sharpe.value == f"{expected.sharpe_ratio:.2f}"
+    assert highest_sharpe.delta == expected.fund
 
 
 def test_fact_sheet_fund_selection_is_interactive():

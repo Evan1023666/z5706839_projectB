@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 from pathlib import Path
 
 import numpy as np
@@ -13,6 +14,12 @@ import streamlit as st
 
 ROOT = Path(__file__).resolve().parent
 RESULTS = ROOT / "results"
+RESULT_PATHS = {
+    "returns": RESULTS / "data" / "fund_returns.csv",
+    "weights": RESULTS / "data" / "fund_weights.csv",
+    "sentiment": RESULTS / "data" / "sector_sentiment_index.csv",
+    "metrics": RESULTS / "tables" / "performance_metrics.csv",
+}
 NAVY = "#17324D"
 TEAL = "#087E8B"
 GOLD = "#D9A441"
@@ -46,25 +53,30 @@ st.markdown(
 )
 
 
+def results_fingerprint() -> str:
+    """Return a content key so deployments cannot reuse stale result frames."""
+    digest = hashlib.sha256()
+    for name, path in sorted(RESULT_PATHS.items()):
+        digest.update(name.encode("utf-8"))
+        if path.exists():
+            digest.update(path.read_bytes())
+    return digest.hexdigest()
+
+
 @st.cache_data(show_spinner=False)
-def load_results() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    """Load committed precomputed artifacts only."""
-    paths = {
-        "returns": RESULTS / "data" / "fund_returns.csv",
-        "weights": RESULTS / "data" / "fund_weights.csv",
-        "sentiment": RESULTS / "data" / "sector_sentiment_index.csv",
-        "metrics": RESULTS / "tables" / "performance_metrics.csv",
-    }
-    missing = [str(path.relative_to(ROOT)) for path in paths.values() if not path.exists()]
+def load_results(artifact_version: str) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Load committed precomputed artifacts, keyed by their content hash."""
+    del artifact_version  # Included solely in Streamlit's cache key.
+    missing = [str(path.relative_to(ROOT)) for path in RESULT_PATHS.values() if not path.exists()]
     if missing:
         raise FileNotFoundError(
             "Precomputed result files are missing: " + ", ".join(missing)
             + ". Run python scripts/run_part_b.py locally and commit results/."
         )
-    returns = pd.read_csv(paths["returns"], parse_dates=["date"])
-    weights = pd.read_csv(paths["weights"], parse_dates=["rebalance_date"])
-    sentiment = pd.read_csv(paths["sentiment"], parse_dates=["trading_date", "signal_date"])
-    metrics = pd.read_csv(paths["metrics"])
+    returns = pd.read_csv(RESULT_PATHS["returns"], parse_dates=["date"])
+    weights = pd.read_csv(RESULT_PATHS["weights"], parse_dates=["rebalance_date"])
+    sentiment = pd.read_csv(RESULT_PATHS["sentiment"], parse_dates=["trading_date", "signal_date"])
+    metrics = pd.read_csv(RESULT_PATHS["metrics"])
     return returns, weights, sentiment, metrics
 
 
@@ -92,7 +104,7 @@ def base_layout(fig: go.Figure, *, y_title: str, height: int = 440) -> go.Figure
 
 
 try:
-    fund_returns, fund_weights, sector_sentiment, performance = load_results()
+    fund_returns, fund_weights, sector_sentiment, performance = load_results(results_fingerprint())
 except Exception as exc:
     st.error("SignalBlend cannot load its precomputed results.")
     st.code(str(exc))
